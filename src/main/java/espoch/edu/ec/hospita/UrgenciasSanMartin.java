@@ -12,7 +12,7 @@ import espoch.edu.ec.hospitaenum.TipoProcedimiento;
 public class UrgenciasSanMartin {
 
     public static void main(String[] args) {
-       System.out.println(" Urgencias Hospitalarias San Martin ");
+        System.out.println(" Urgencias Hospitalarias San Martin ");
         System.out.println("Turno de madrugada");
         
         // Caso Paulo
