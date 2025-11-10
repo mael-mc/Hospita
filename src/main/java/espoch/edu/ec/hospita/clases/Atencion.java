@@ -2,9 +2,10 @@
 package espoch.edu.ec.hospita.clases;
 
 import espoch.edu.ec.hospitaenum.EstadoAtencion;
+import espoch.edu.ec.hospitaenum.Prioridad;
 
 public class Atencion {
-  private String id;
+   private String id;
     private Paciente paciente;
     private EstadoAtencion estado;
     private Prioridad prioridad;
@@ -17,6 +18,14 @@ public class Atencion {
         this.estado = EstadoAtencion.REGISTRADA;
         this.contadorProcedimientos = 0;
         this.factura = new Factura();
+    }
+
+    public void cambiarEstado(EstadoAtencion nuevoEstado) {
+        this.estado = nuevoEstado;
+    }
+
+    public void cancelar(String motivo) {
+        this.estado = EstadoAtencion.CANCELADA;
     }
 
     public void agregarProcedimiento(Procedimiento procedimiento) {

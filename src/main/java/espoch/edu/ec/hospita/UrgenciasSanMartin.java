@@ -3,7 +3,7 @@ package espoch.edu.ec.hospita;
 
 import espoch.edu.ec.hospita.clases.Atencion;
 import espoch.edu.ec.hospita.clases.Paciente;
-import espoch.edu.ec.hospita.clases.Prioridad;
+import espoch.edu.ec.hospitaenum.Prioridad;
 import espoch.edu.ec.hospita.clases.Procedimiento;
 import espoch.edu.ec.hospitaenum.EstadoAtencion;
 import espoch.edu.ec.hospitaenum.TipoProcedimiento;
@@ -16,7 +16,7 @@ public class UrgenciasSanMartin {
         System.out.println("Turno de madrugada");
         
         // Caso Paulo
-        System.out.println("Atencion de Emergencia:");
+        System.out.println("Atencion de Emergencia");
         System.out.println("Paciente: Paulo");
         System.out.println("Sintoma: dolor toracico");
         System.out.println("Prioridad: " + Prioridad.ROJO);

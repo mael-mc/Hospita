@@ -3,6 +3,6 @@ espoch\edu\ec\hospita\clases\Paciente.class
 espoch\edu\ec\hospita\UrgenciasSanMartin.class
 espoch\edu\ec\hospitaenum\EstadoAtencion.class
 espoch\edu\ec\hospita\clases\Atencion.class
+espoch\edu\ec\hospitaenum\Prioridad.class
 espoch\edu\ec\hospita\clases\Factura.class
-espoch\edu\ec\hospita\clases\Prioridad.class
 espoch\edu\ec\hospita\clases\Procedimiento.class
