@@ -1,5 +1,5 @@
 
-package espoch.edu.ec.hospita.clases;
+package espoch.edu.ec.hospitaenum;
 
 public enum TipoProcedimiento {
     ECG, 

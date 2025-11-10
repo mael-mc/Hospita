@@ -1,85 +1,89 @@
 
 package espoch.edu.ec.hospita.clases;
 
+import espoch.edu.ec.hospitaenum.EstadoAtencion;
+
 public class Atencion {
-    private String id;
+  private String id;
     private Paciente paciente;
     private EstadoAtencion estado;
     private Prioridad prioridad;
-    private String motivoCancelacion;
     private Procedimiento procedimiento1;
     private Procedimiento procedimiento2;
     private int contadorProcedimientos;
     private Factura factura;
 
-    public Atencion(String id, Paciente paciente, Prioridad prioridad) {
-        this.id = id;
-        this.paciente = paciente;
-        this.prioridad = prioridad;
+    public Atencion() {
         this.estado = EstadoAtencion.REGISTRADA;
         this.contadorProcedimientos = 0;
         this.factura = new Factura();
     }
 
-    public void cambiarEstado(EstadoAtencion nuevoEstado) {
-        // Validar regla: Alta requiere ListaParaAlta
-        if (nuevoEstado == EstadoAtencion.ALTA_EMITIDA && this.estado != EstadoAtencion.LISTA_PARA_ALTA) {
-            throw new IllegalArgumentException("No se puede emitir Alta sin pasar por ListaParaAlta");
-        }
-        
-        // Validar regla: Cancelación solo desde Registrada o EnTriaje
-        if (nuevoEstado == EstadoAtencion.CANCELADA && 
-            this.estado != EstadoAtencion.REGISTRADA && this.estado != EstadoAtencion.ENTRIAGE) {
-            throw new IllegalArgumentException("Solo se puede cancelar desde Registrada o EnTriaje");
-        }
-
-        this.estado = nuevoEstado;
-    }
-
-    public void cancelar(String motivo) {
-        if (motivo == null || motivo.trim().isEmpty()) {
-            throw new IllegalArgumentException("Motivo de cancelación es obligatorio");
-        }
-        this.motivoCancelacion = motivo;
-        cambiarEstado(EstadoAtencion.CANCELADA);
-    }
-
     public void agregarProcedimiento(Procedimiento procedimiento) {
         if (contadorProcedimientos == 0) {
             procedimiento1 = procedimiento;
+            factura.agregarItem(procedimiento.getCosto());
         } else if (contadorProcedimientos == 1) {
             procedimiento2 = procedimiento;
-        } else {
-            throw new IllegalStateException("Máximo 2 procedimientos por atención");
+            factura.agregarItem(procedimiento.getCosto());
         }
         contadorProcedimientos++;
-        factura.agregarItem(procedimiento.getCosto());
     }
 
-    public int getCantidadProcedimientos() {
-        return contadorProcedimientos;
-    }
-
-    // Getters
+    // Getters y Setters
     public String getId() { 
         return id; 
     }
+    public void setId(String id) { 
+        this.id = id; 
+    }
+    
     public Paciente getPaciente() { 
         return paciente; 
     }
+    public void setPaciente(Paciente paciente) { 
+        this.paciente = paciente;
+    }
+    
     public EstadoAtencion getEstado() { 
-        return estado; 
+        return estado;
     }
+    public void setEstado(EstadoAtencion estado) { 
+        this.estado = estado;
+    }
+    
     public Prioridad getPrioridad() { 
-        return prioridad; 
+        return prioridad;
     }
+    public void setPrioridad(Prioridad prioridad) { 
+        this.prioridad = prioridad;
+    }
+    
     public Factura getFactura() { 
-        return factura; 
+        return factura;
     }
+    public void setFactura(Factura factura) { 
+        this.factura = factura;
+    }
+    
+    public int getCantidadProcedimientos() { 
+        return contadorProcedimientos;
+    }
+    public void setCantidadProcedimientos(int contadorProcedimientos) { 
+        this.contadorProcedimientos = contadorProcedimientos;
+    }
+    
     public Procedimiento getProcedimiento1() { 
-        return procedimiento1; 
+        return procedimiento1;
     }
+    public void setProcedimiento1(Procedimiento procedimiento1) { 
+        this.procedimiento1 = procedimiento1;
+    }
+    
     public Procedimiento getProcedimiento2() { 
         return procedimiento2;
+    }
+    public void setProcedimiento2(Procedimiento procedimiento2) { 
+        this.procedimiento2 = procedimiento2;
     }
 }

@@ -1,33 +1,35 @@
 
 package espoch.edu.ec.hospita.clases;
 
+import espoch.edu.ec.hospitaenum.TipoProcedimiento;
+
 public class Procedimiento {
     private TipoProcedimiento tipo;
     private String codigo;
     private double costo;
-    private String resultados;
 
-    public Procedimiento(TipoProcedimiento tipo, String codigo, double costo) {
-        this.tipo = tipo;
-        this.codigo = codigo;
-        this.costo = costo;
+    public Procedimiento() {
     }
 
-    public void registrarResultados(String resultados) {
-        this.resultados = resultados;
-    }
-
-    // Getters
+    // Getters y Setters
     public TipoProcedimiento getTipo() { 
-        return tipo; 
+        return tipo;
     }
+    public void setTipo(TipoProcedimiento tipo) { 
+        this.tipo = tipo;
+    }
+    
     public String getCodigo() { 
-        return codigo; 
+        return codigo;
     }
+    public void setCodigo(String codigo) { 
+        this.codigo = codigo;
+    }
+    
     public double getCosto() { 
-        return costo; 
+        return costo;
     }
-    public String getResultados() { 
-        return resultados;
+    public void setCosto(double costo) { 
+        this.costo = costo;
     }
 }

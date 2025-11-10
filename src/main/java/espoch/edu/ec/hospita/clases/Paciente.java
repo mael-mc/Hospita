@@ -2,19 +2,25 @@
 package espoch.edu.ec.hospita.clases;
 
 public class Paciente {
+    
     private String nombre;
     private String alergia;
 
-    public Paciente(String nombre, String alergia) {
-        this.nombre = nombre;
-        this.alergia = alergia;
+    public Paciente() {
     }
 
-    // Getters
+    // Getters y Setters
     public String getNombre() { 
-        return nombre; 
+        return nombre;
     }
+    public void setNombre(String nombre) { 
+        this.nombre = nombre;
+    }
+    
     public String getAlergia() { 
-        return alergia; 
+        return alergia;
+    }
+    public void setAlergia(String alergia) { 
+        this.alergia = alergia;
     }
 }

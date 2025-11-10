@@ -19,26 +19,36 @@ public class Factura {
     }
 
     public void aplicarCobertura(double porcentaje) {
-        if (coberturaAplicada) {
-            throw new IllegalStateException("La cobertura de seguro ya fue aplicada");
+        if (!coberturaAplicada) {
+            this.descuentoSeguro = this.subtotal * (porcentaje / 100);
+            this.total = this.subtotal - this.descuentoSeguro;
+            this.coberturaAplicada = true;
         }
-        
-        this.descuentoSeguro = this.subtotal * (porcentaje / 100);
-        this.total = this.subtotal - this.descuentoSeguro;
-        this.coberturaAplicada = true;
     }
 
-    // Getters
+    // Getters y Setters
     public double getTotal() { 
-        return total; 
+        return total;
     }
+    public void setTotal(double total) { 
+        this.total = total;
+    }
+    
     public double getSubtotal() { 
-        return subtotal; 
+        return subtotal;
     }
+    public void setSubtotal(double subtotal) { 
+        this.subtotal = subtotal;
+    }
+    
     public double getDescuentoSeguro() { 
         return descuentoSeguro;
     }
-    public boolean isCoberturaAplicada() { 
-        return coberturaAplicada; 
+    public void setDescuentoSeguro(double descuentoSeguro) { 
+        this.descuentoSeguro = descuentoSeguro;
+    }
+    
+    public void setCoberturaAplicada(boolean coberturaAplicada) { 
+        this.coberturaAplicada = coberturaAplicada;
     }
 }
