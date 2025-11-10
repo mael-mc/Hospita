@@ -5,7 +5,7 @@ import espoch.edu.ec.hospitaenum.EstadoAtencion;
 import espoch.edu.ec.hospitaenum.Prioridad;
 
 public class Atencion {
-   private String id;
+  private String id;
     private Paciente paciente;
     private EstadoAtencion estado;
     private Prioridad prioridad;
